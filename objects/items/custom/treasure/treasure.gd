@@ -1,6 +1,5 @@
 extends Sprite3D
 
-@onready var treasure_pool : ItemPool = GameLoader.load("res://objects/items/pools/treasures.tres")
 var item : Resource
 var heal_perc := 0.1
 
@@ -26,7 +25,7 @@ func get_heal_value() -> int:
 	return ceili(Util.get_player().stats.max_hp * heal_perc)
 
 func get_treasure_index() -> int:
-	for _item in treasure_pool.items:
+	for _item in ItemService.ITEM_POOL_TREASURES.items:
 		if _item.item_name == item.item_name:
-			return treasure_pool.items.find(_item)
+			return ItemService.ITEM_POOL_TREASURES.items.find(_item)
 	return -1

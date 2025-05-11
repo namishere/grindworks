@@ -9,7 +9,6 @@ const WALK_SPD := 2.0
 const GRAVITY := -9.8
 const DIG_CHANCE := 2
 const CHEST_CHANCE := 2
-const TREASURE_POOL := preload("res://objects/items/pools/doodle_treasure.tres")
 
 ## ANIM CONSTANTS
 const TELEPORT_HOLE := preload('res://objects/misc/teleport_hole/teleport_hole.tscn')
@@ -356,7 +355,7 @@ func dig() -> void:
 		chest.global_rotation_degrees.y = doodle.global_rotation_degrees.y - 180.0
 		chest.global_position = hole_placement.global_position
 		chest.global_position.y -= 4.0
-		chest.item_pool = TREASURE_POOL
+		chest.item_pool = ItemService.ITEM_POOL_DOODLE_TREASURES
 		# Create tween remainder
 		tween.tween_callback(AudioManager.play_sound.bind(SFX_TREASURE))
 		tween.tween_callback(chest.show)

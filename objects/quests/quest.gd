@@ -1,8 +1,6 @@
 extends Resource
 class_name Quest
 
-const FALLBACK_ITEM_POOL := preload("res://objects/items/pools/toontasks.tres")
-
 @export var icon : Texture2D
 @export var title := ""
 @export var quota := 1
@@ -27,7 +25,7 @@ func setup() -> void:
 
 func roll_for_item() -> Item:
 	if not item_pool:
-		item_pool = FALLBACK_ITEM_POOL
+		item_pool = ItemService.ITEM_POOL_TOONTASKS
 	var item := ItemService.get_random_item(item_pool)
 	item.guarantee_collection = true
 	if not item.evergreen:

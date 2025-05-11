@@ -313,7 +313,7 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 		match i:
 			0:
 				# Give a random super candy
-				chest.item_pool = load("res://objects/items/pools/super_candies.tres")
+				chest.item_pool = ItemService.ITEM_POOL_SUPER_CANDY
 			1:
 				# Give a random track frame
 				chest.override_item = load("res://objects/items/resources/passive/track_frame.tres")
@@ -335,7 +335,7 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 			3:
 				# Chance to give Player some money, guaranteed if they're < 20
 				if player.stats.money < 20 or RandomService.randi_channel('true_random') % 2 == 0:
-					chest.item_pool = load("res://objects/items/pools/jellybeans.tres")
+					chest.item_pool = ItemService.ITEM_POOL_JELLYBEANS
 		chest.update_texture(chest.BOSS_TEXTURE)
 		chest.set_ray_gradient(light_beam)
 

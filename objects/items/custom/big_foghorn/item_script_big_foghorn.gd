@@ -4,7 +4,6 @@ const MEGAPHONE := preload("res://models/props/gags/megaphone/megaphone.tscn")
 const SFX_WINDUP := preload("res://audio/sfx/battle/gags/sound/mailbox_full_wobble.ogg")
 const SFX_BLAST := preload("res://audio/sfx/battle/gags/sound/SZ_DD_foghorn.ogg")
 const TREASURE_CHEST := "res://objects/interactables/treasure_chest/treasure_chest.tscn"
-const BATTLE_CLEAR_POOL := "res://objects/items/pools/battle_clears.tres"
 
 func use() -> void:
 	var player := Util.get_player()
@@ -79,7 +78,7 @@ func destroy_battle(battle : BattleNode) -> void:
 		chest.item_pool = Globals.PROGRESSIVE_ITEM_POOL
 		Util.get_player().boost_queue.queue_text("Bounty!", Color.GREEN)
 	else:
-		chest.item_pool = load(BATTLE_CLEAR_POOL)
+		chest.item_pool = ItemService.ITEM_POOL_BATTLE_CLEARS
 	battle.add_child(chest)
 	chest.reparent(Util.floor_manager)
 	battle.s_battle_end.emit()

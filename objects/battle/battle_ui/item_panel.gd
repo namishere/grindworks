@@ -168,7 +168,6 @@ func use_toonup(level: int) -> void:
 
 #region TREASURES
 @onready var treasure_template := %TreasureTemplate
-@onready var treasure_pool : ItemPool = GameLoader.load("res://objects/items/pools/treasures.tres")
 @onready var treasure_container := %TreasureContainer
 
 func _ready_treasures() -> void:
@@ -224,7 +223,7 @@ func create_new_treasure(level: int, count: int) -> Control:
 	return button_copy
 
 func get_treasure(idx: int) -> Item:
-	return treasure_pool.items[idx]
+	return ItemService.ITEM_POOL_TREASURES.items[idx]
 
 func get_treasure_icon(item : Item) -> Texture2D:
 	return item.arbitrary_data['texture']

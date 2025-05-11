@@ -39,7 +39,7 @@ func randomize_stats(player : Player) -> void:
 	print('stat randomization done :D')
 	Util.random_stats = player.stats
 	
-	var item_pools: Array[ItemPool] = [load('res://objects/items/pools/accessories.tres'), load('res://objects/items/pools/active_items.tres')]
+	var item_pools: Array[ItemPool] = [ItemService.ITEM_POOL_ACCESSORIES.duplicate(), ItemService.ITEM_POOL_ACTIVES.duplicate()]
 	for pool in item_pools:
 		var item : Item = ItemService.get_random_item(pool, true)
 		player.stats.character.starting_items.append(item)

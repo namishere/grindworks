@@ -2,7 +2,7 @@ extends Resource
 class_name FloorVariant
 
 ## Default Item Pool
-var FALLBACK_REWARD_POOL: ItemPool
+## var FALLBACK_REWARD_POOL: ItemPool
 ## Default Cog Pool
 var FALLBACK_COG_POOL: CogPool
 ## Amount of rooms to add per difficulty (includes connectors)
@@ -85,7 +85,6 @@ var anomaly_count := 0
 
 func _init():
 	GameLoader.queue_into(GameLoader.Phase.GAMEPLAY, self, {
-		'FALLBACK_REWARD_POOL': 'res://objects/items/pools/floor_clears.tres',
 		'FALLBACK_COG_POOL': 'res://objects/cog/presets/pools/grunt_cogs.tres',
 	})
 
@@ -170,7 +169,7 @@ func get_calculated_level_range(difficulty: int) -> Vector2i:
 
 func randomize_item() -> void:
 	if not reward_pool:
-		reward_pool = FALLBACK_REWARD_POOL
+		reward_pool = ItemService.ITEM_POOL_FLOOR_CLEARS
 	reward = ItemService.get_random_item(reward_pool,true)
 	if not reward.evergreen:
 		discard_item = reward

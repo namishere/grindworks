@@ -19,9 +19,43 @@ var linked_items: Array = [
 func _init():
 	GameLoader.queue_into(
 		GameLoader.Phase.GAMEPLAY, self, {
-			'BEAN_POOL': 'res://objects/items/pools/jellybeans.tres',
+			'ITEM_POOL_FAILSAFE' : 'res://objects/items/pools/item_roll_fails.tres',
+			'ITEM_POOL_ACCESSORIES' : 'res://objects/items/pools/accessories.tres',
+			'ITEM_POOL_ACTIVES' : 'res://objects/items/pools/active_items.tres',
+			'ITEM_POOL_BATTLE_CLEARS' : 'res://objects/items/pools/battle_clears.tres',
+			'ITEM_POOL_CANDY' : 'res://objects/items/pools/candies.tres',
+			'ITEM_POOL_DOODLE_TREASURES' : 'res://objects/items/pools/doodle_treasure.tres',
+			'ITEM_POOL_ALL' : 'res://objects/items/pools/everything.tres',
+			'ITEM_POOL_FLOOR_CLEARS' : 'res://objects/items/pools/floor_clears.tres',
+			'ITEM_POOL_JELLYBEANS' : 'res://objects/items/pools/jellybeans.tres', ## BEAN_POOL
+			'ITEM_POOL_PROGRESSIVES' : 'res://objects/items/pools/progressives.tres',
+			'ITEM_POOL_REWARDS' : 'res://objects/items/pools/rewards.tres',
+			'ITEM_POOL_SHOP_PROGRESSIVES' : 'res://objects/items/pools/shop_progressives.tres',
+			'ITEM_POOL_SHOP_REWARDS' : 'res://objects/items/pools/shop_rewards.tres',
+			'ITEM_POOL_SPECIAL_ITEMS' : 'res://objects/items/pools/special_items.tres',
+			'ITEM_POOL_SUPER_CANDY' : 'res://objects/items/pools/super_candies.tres',
+			'ITEM_POOL_TOONTASKS' : 'res://objects/items/pools/toontasks.tres',
+			'ITEM_POOL_TREASURES' : 'res://objects/items/pools/treasures.tres',
 		}
 	)
+
+var ITEM_POOL_FAILSAFE : ItemPool
+var ITEM_POOL_ACCESSORIES : ItemPool
+var ITEM_POOL_ACTIVES : ItemPool
+var ITEM_POOL_BATTLE_CLEARS : ItemPool
+var ITEM_POOL_CANDY : ItemPool
+var ITEM_POOL_DOODLE_TREASURES : ItemPool
+var ITEM_POOL_ALL : ItemPool
+var ITEM_POOL_FLOOR_CLEARS : ItemPool
+var ITEM_POOL_JELLYBEANS : ItemPool
+var ITEM_POOL_PROGRESSIVES : ItemPool
+var ITEM_POOL_REWARDS : ItemPool
+var ITEM_POOL_SHOP_PROGRESSIVES : ItemPool
+var ITEM_POOL_SHOP_REWARDS : ItemPool
+var ITEM_POOL_SPECIAL_ITEMS : ItemPool
+var ITEM_POOL_SUPER_CANDY : ItemPool
+var ITEM_POOL_TOONTASKS : ItemPool
+var ITEM_POOL_TREASURES : ItemPool
 
 func _ready() -> void:
 	# Clear out temp seen items upon every floor start
@@ -118,7 +152,7 @@ func get_random_item(pool: ItemPool, override_rolls := false) -> Item:
 	return RandomService.array_pick_random(res_name, quality_trimmed_pool)
 
 func get_random_roll_fail_item() -> Item:
-	return get_random_item(load("res://objects/items/pools/item_roll_fails.tres"), true)
+	return get_random_item(ITEM_POOL_FAILSAFE, true)
 
 func seen_item(item: Item, allow_duplicate := false):
 	if not allow_duplicate and item.resource_path == "":
