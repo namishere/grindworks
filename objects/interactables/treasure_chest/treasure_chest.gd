@@ -14,7 +14,7 @@ var SFX_OPEN: AudioStreamOggVorbis
 	set(x):
 		item_pool = ItemService.pools.get(x.resource_path)
 		if item_pool == null:
-			printerr("ItemService.pools.get returned null?? path %s", x.resource_path)
+			printerr("ItemService.pools.get returned null?? path ", x.resource_path)
 			item_pool = x
 		if not is_node_ready():
 			await ready

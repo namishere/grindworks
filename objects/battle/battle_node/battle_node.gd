@@ -23,7 +23,7 @@ var state := BattleState.INACTIVE
 	set(x):
 		item_pool = ItemService.pools.get(x.resource_path)
 		if item_pool == null:
-			printerr("ItemService.pools.get returned null?? path %", x.resource_path)
+			printerr("ItemService.pools.get returned null?? path ", x.resource_path)
 			item_pool = x
 @export var boss_battle := false
 @export var override_camera_angles : Dictionary[String, Transform3D] = {}

@@ -16,6 +16,24 @@ var linked_items: Array = [
 	]
 ]
 
+var ITEM_POOL_FAILSAFE : ItemPool
+var ITEM_POOL_ACCESSORIES : ItemPool
+var ITEM_POOL_ACTIVES : ItemPool
+var ITEM_POOL_BATTLE_CLEARS : ItemPool
+var ITEM_POOL_CANDY : ItemPool
+var ITEM_POOL_DOODLE_TREASURES : ItemPool
+var ITEM_POOL_ALL : ItemPool
+var ITEM_POOL_FLOOR_CLEARS : ItemPool
+var ITEM_POOL_JELLYBEANS : ItemPool
+var ITEM_POOL_PROGRESSIVES : ItemPool
+var ITEM_POOL_REWARDS : ItemPool
+var ITEM_POOL_SHOP_PROGRESSIVES : ItemPool
+var ITEM_POOL_SHOP_REWARDS : ItemPool
+var ITEM_POOL_SPECIAL_ITEMS : ItemPool
+var ITEM_POOL_SUPER_CANDY : ItemPool
+var ITEM_POOL_TOONTASKS : ItemPool
+var ITEM_POOL_TREASURES : ItemPool
+
 func _init():
 	GameLoader.queue_into(
 		GameLoader.Phase.GAME_START, self, {
@@ -38,24 +56,7 @@ func _init():
 			'ITEM_POOL_TREASURES' : 'res://objects/items/pools/treasures.tres',
 		}
 	)
-
-var ITEM_POOL_FAILSAFE : ItemPool
-var ITEM_POOL_ACCESSORIES : ItemPool
-var ITEM_POOL_ACTIVES : ItemPool
-var ITEM_POOL_BATTLE_CLEARS : ItemPool
-var ITEM_POOL_CANDY : ItemPool
-var ITEM_POOL_DOODLE_TREASURES : ItemPool
-var ITEM_POOL_ALL : ItemPool
-var ITEM_POOL_FLOOR_CLEARS : ItemPool
-var ITEM_POOL_JELLYBEANS : ItemPool
-var ITEM_POOL_PROGRESSIVES : ItemPool
-var ITEM_POOL_REWARDS : ItemPool
-var ITEM_POOL_SHOP_PROGRESSIVES : ItemPool
-var ITEM_POOL_SHOP_REWARDS : ItemPool
-var ITEM_POOL_SPECIAL_ITEMS : ItemPool
-var ITEM_POOL_SUPER_CANDY : ItemPool
-var ITEM_POOL_TOONTASKS : ItemPool
-var ITEM_POOL_TREASURES : ItemPool
+	print("ItemService._init finished")
 
 var pools: Dictionary[String, ItemPool] = {
 	'res://objects/items/pools/item_roll_fails.tres' = ITEM_POOL_FAILSAFE,
@@ -73,7 +74,7 @@ var pools: Dictionary[String, ItemPool] = {
 	'res://objects/items/pools/shop_rewards.tres' = ITEM_POOL_SHOP_REWARDS,
 	'res://objects/items/pools/special_items.tres' = ITEM_POOL_SPECIAL_ITEMS,
 	'res://objects/items/pools/super_candies.tres' = ITEM_POOL_SUPER_CANDY,
-	'%res://objects/items/pools/toontasks.tres' = ITEM_POOL_TOONTASKS,
+	'res://objects/items/pools/toontasks.tres' = ITEM_POOL_TOONTASKS,
 	'res://objects/items/pools/treasures.tres' = ITEM_POOL_TREASURES,
 }
 

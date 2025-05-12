@@ -14,7 +14,7 @@ class_name Quest
 	set(x):
 		item_pool = ItemService.pools.get(x.resource_path)
 		if item_pool == null:
-			printerr("ItemService.pools.get returned null?? path %", x.resource_path)
+			printerr("ItemService.pools.get returned null?? path ", x.resource_path)
 			item_pool = x
 
 signal s_quest_updated

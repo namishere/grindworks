@@ -6,7 +6,7 @@ class_name WorldItem
 	set(x):
 		pool = ItemService.pools.get(x.resource_path)
 		if pool == null:
-			printerr("ItemService.pools.get returned null?? path %s", x.resource_path)
+			printerr("ItemService.pools.get returned null?? path ", x.resource_path)
 			pool = x
 @export var override_replacement_rolls := false
 
