@@ -10,7 +10,12 @@ class_name Quest
 @export var quest_txt := ""
 @export var goal_dept : CogDNA.CogDept
 @export var item_reward : Item
-@export var item_pool : ItemPool
+@export var item_pool : ItemPool:
+	set(x):
+		item_pool = ItemService.pools.get(x.resource_path)
+		if item_pool == null:
+			printerr("ItemService.pools.get returned null?? path %", x.resource_path)
+			item_pool = x
 
 signal s_quest_updated
 signal s_quest_complete

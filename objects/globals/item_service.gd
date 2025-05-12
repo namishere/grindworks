@@ -18,7 +18,7 @@ var linked_items: Array = [
 
 func _init():
 	GameLoader.queue_into(
-		GameLoader.Phase.GAMEPLAY, self, {
+		GameLoader.Phase.GAME_START, self, {
 			'ITEM_POOL_FAILSAFE' : 'res://objects/items/pools/item_roll_fails.tres',
 			'ITEM_POOL_ACCESSORIES' : 'res://objects/items/pools/accessories.tres',
 			'ITEM_POOL_ACTIVES' : 'res://objects/items/pools/active_items.tres',
@@ -56,6 +56,26 @@ var ITEM_POOL_SPECIAL_ITEMS : ItemPool
 var ITEM_POOL_SUPER_CANDY : ItemPool
 var ITEM_POOL_TOONTASKS : ItemPool
 var ITEM_POOL_TREASURES : ItemPool
+
+var pools: Dictionary[String, ItemPool] = {
+	'res://objects/items/pools/item_roll_fails.tres' = ITEM_POOL_FAILSAFE,
+	'res://objects/items/pools/accessories.tres' = ITEM_POOL_ACCESSORIES,
+	'res://objects/items/pools/active_items.tres' = ITEM_POOL_ACTIVES,
+	'res://objects/items/pools/battle_clears.tres' = ITEM_POOL_BATTLE_CLEARS,
+	'res://objects/items/pools/candies.tres' = ITEM_POOL_CANDY,
+	'res://objects/items/pools/doodle_treasure.tres' = ITEM_POOL_DOODLE_TREASURES,
+	'res://objects/items/pools/everything.tres' = ITEM_POOL_ALL,
+	'res://objects/items/pools/floor_clears.tres' = ITEM_POOL_FLOOR_CLEARS,
+	'res://objects/items/pools/jellybeans.tres' = ITEM_POOL_JELLYBEANS, ## BEAN_POOL
+	'res://objects/items/pools/progressives.tres' = ITEM_POOL_PROGRESSIVES,
+	'res://objects/items/pools/rewards.tres' = ITEM_POOL_REWARDS,
+	'res://objects/items/pools/shop_progressives.tres' = ITEM_POOL_SHOP_PROGRESSIVES,
+	'res://objects/items/pools/shop_rewards.tres' = ITEM_POOL_SHOP_REWARDS,
+	'res://objects/items/pools/special_items.tres' = ITEM_POOL_SPECIAL_ITEMS,
+	'res://objects/items/pools/super_candies.tres' = ITEM_POOL_SUPER_CANDY,
+	'%res://objects/items/pools/toontasks.tres' = ITEM_POOL_TOONTASKS,
+	'res://objects/items/pools/treasures.tres' = ITEM_POOL_TREASURES,
+}
 
 func _ready() -> void:
 	# Clear out temp seen items upon every floor start

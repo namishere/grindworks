@@ -52,7 +52,12 @@ const LEVEL_RANGES: Dictionary[int, Array] = {
 @export var floor_name := "Facility"
 
 ## Item is granted upon floor completion
-@export var reward_pool: ItemPool
+@export var reward_pool: ItemPool:
+	set(x):
+		reward_pool = ItemService.pools.get(x.resource_path)
+		if reward_pool == null:
+			printerr("ItemService.pools.get returned null?? path %", x.resource_path)
+			reward_pool = x
 
 ## Cog pool to use for the floor
 @export var cog_pool: CogPool

@@ -2,7 +2,12 @@ extends Area3D
 class_name WorldItem
 
 @export var item: Item
-@export var pool: ItemPool
+@export var pool: ItemPool:
+	set(x):
+		pool = ItemService.pools.get(x.resource_path)
+		if pool == null:
+			printerr("ItemService.pools.get returned null?? path %s", x.resource_path)
+			pool = x
 @export var override_replacement_rolls := false
 
 # Locals

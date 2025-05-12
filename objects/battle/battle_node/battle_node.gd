@@ -19,7 +19,12 @@ var state := BattleState.INACTIVE
 @export var cogs: Array[Cog]
 @export var focus_cog: Cog
 @export var override_intro: BattleStartMovie
-@export var item_pool: ItemPool
+@export var item_pool: ItemPool:
+	set(x):
+		item_pool = ItemService.pools.get(x.resource_path)
+		if item_pool == null:
+			printerr("ItemService.pools.get returned null?? path %", x.resource_path)
+			item_pool = x
 @export var boss_battle := false
 @export var override_camera_angles : Dictionary[String, Transform3D] = {}
 
